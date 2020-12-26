@@ -1,0 +1,31 @@
+﻿@model ProdutCreateViewModel
+@{
+    ViewBag.Title = "Create";
+}
+<br />
+
+<form asp-controller="Product" asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Product Name</label>
+            <input type="text" asp-for="@Model.ProductName" class="form-control" placeholder="Product Name" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>Price</label>
+            <input type="number" asp-for="@Model.Price" class="form-control" placeholder="Price" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>Category</label>
+            <select asp-for="CategoryId" asp-items="@ViewBag.DDL" class="form-control custom-select">
+                <option value="">Select Category</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Photo</label>
+            <input type="file" asp-for="Photo" class="form-control" />
+        </div>
+        <div class="form-group col-md-12">
+            <input type="submit" value="Add new product" class="btn btn-primary form-control" />
+        </div>
+    </div>
+</form>
